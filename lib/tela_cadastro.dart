@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'cadastro.dart';
 
-class TelaLogin extends StatefulWidget {
-  const TelaLogin({super.key});
+class TelaCadastro extends StatefulWidget {
+  const TelaCadastro({super.key});
 
   @override
-  State<TelaLogin> createState() => _TelaLoginState();
+  State<TelaCadastro> createState() => _TelaCadastroState();
 }
 
-class _TelaLoginState extends State<TelaLogin> {
+class _TelaCadastroState extends State<TelaCadastro> {
+  final TextEditingController nomeController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
 
-  void fazerLogin() {
-    print('Email: ${emailController.text}');
-    print('Senha: ${senhaController.text}');
+  void cadastrar() {
+    debugPrint('Nome: ${nomeController.text}');
+    debugPrint('Email: ${emailController.text}');
+    debugPrint('Senha: ${senhaController.text}');
   }
 
   @override
@@ -23,10 +24,7 @@ class _TelaLoginState extends State<TelaLogin> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Image.asset(
-          'assets/logo.png',
-          height: 160,
-        ),
+        title: const Text('Cadastro'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -34,10 +32,14 @@ class _TelaLoginState extends State<TelaLogin> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Login',
+              'Criar Nova Conta',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
+            TextField(
+              controller: nomeController,
+              decoration: const InputDecoration(labelText: 'Nome'),
+            ),
             TextField(
               controller: emailController,
               decoration: const InputDecoration(labelText: 'Email'),
@@ -49,18 +51,9 @@ class _TelaLoginState extends State<TelaLogin> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: fazerLogin,
-              child: const Text('Entrar'),
+              onPressed: cadastrar,
+              child: const Text('Finalizar Cadastro'),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const TelaCadastro()),
-                );
-              },
-              child: const Text('Criar conta'),
-            )
           ],
         ),
       ),
