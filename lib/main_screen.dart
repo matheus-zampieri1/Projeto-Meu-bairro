@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'tela_pesquisa.dart';
 import 'tela_mapa.dart'; 
-import 'tela_feed.dart'; // 1. ALTERAÇÃO: Importando a tela de feed criada
+import 'tela_feed.dart';
 
-// 1. Você precisa definir a classe MainScreen antes do _MainScreenState
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -22,11 +23,20 @@ class _MainScreenState extends State<MainScreen> {
     'RANKING',
   ];
 
+
   late final List<Widget> _paginas = [
     const TelaFeed(), 
     const TelaPesquisa(),
     const Center(child: Text('Adicionar Publicação')),
-    MapaTela(), 
+    const MapaTela(), 
+    const Center(child: Text('Ranking')),
+  ];
+
+  late final List<Widget> paginas = [
+    const TelaFeed(),
+    const TelaPesquisa(),
+    const Center(child: Text('Adicionar Publicação')),
+    const MapaTela(),
     const Center(child: Text('Página Ranking')),
   ];
 

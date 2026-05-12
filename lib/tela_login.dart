@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testezao/MainScreen.dart';
+import 'package:testezao/main_screen.dart';
 import 'tela_cadastro.dart'; // Import da tela de cadastro
 
 class TelaLogin extends StatefulWidget {
