@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-// Certifique-se que o nome do arquivo abaixo está correto no seu projeto
+import 'tela_pesquisa.dart';
 import 'tela_mapa.dart'; 
+import 'tela_feed.dart'; // 1. ALTERAÇÃO: Importando a tela de feed criada
 
 // 1. Você precisa definir a classe MainScreen antes do _MainScreenState
 class MainScreen extends StatefulWidget {
@@ -21,12 +22,11 @@ class _MainScreenState extends State<MainScreen> {
     'RANKING',
   ];
 
-  // 2. REMOVIDO o 'const' global da lista para permitir o MapaTela()
   late final List<Widget> _paginas = [
-    const Center(child: Text('Página Home')),
-    const Center(child: Text('Página Pesquisa')),
+    const TelaFeed(), 
+    const TelaPesquisa(),
     const Center(child: Text('Adicionar Publicação')),
-     MapaTela(), // 3. MapaTela NÃO pode ter 'const' na frente
+    MapaTela(), 
     const Center(child: Text('Página Ranking')),
   ];
 
